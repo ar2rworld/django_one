@@ -1,0 +1,117 @@
+.awesome{
+  text-align: center;
+  border: 2px red solid;
+  border-radius: 25px;
+  margin: 1%;
+  padding: 1%;
+}
+body{
+  padding: 0% 3%;
+  margin: 3px 0;
+}
+.whiteColor{
+  color: rgba(220,220,212,203);
+}
+.whiteBackColor{
+  background-color: rgba(220,220,212,203);
+}
+.greenBackColor{
+  background-color: rgba(59,109,14,58);
+}
+.yellowBackColor{
+  background-color: rgba(217, 240, 136, 177);
+}
+.header{
+  border:1px violet solid;
+  width:10%;
+  margin: auto;
+  text-align: center;
+}
+/*
+.coin{
+  border: 1px white solid;
+  margin: 1%;
+  padding: 1%;
+  text-align: left;
+  display:block;
+  background-color: rgba(116,142,34,83);
+  color: white;
+  font-size: 0.9vw;
+  min-height:50px;
+  border-radius: 15px;
+  position: relative;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+  animation-name: coin;
+*/
+@keyframes coin {
+  0% {left: 0px;}
+  45% {motion-rotation: 45deg;}
+
+  65% {motion-rotation: 0deg;}
+  100% {left: 100%;}
+}
+.coinsTemplate{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: raw;
+  text-align: center;
+  align-items: center;
+}
+.body:hover{
+  background-color: rgb(194, 193, 199);
+}
+.body{
+  background-color: rgba(214, 213, 219, 203);
+  border-top-right-radius: 20px;
+  border: 3px red solid;
+  margin: 1%;  
+}
+*{
+  font-family: sans-serif;
+}
+p{
+  padding: 0 1%;
+}
+
+/* OUTER CONTAINER */
+.tcontainer {
+  width: 100%;
+  overflow: hidden; /* Hide scroll bar */
+}
+ 
+/* MIDDLE CONTAINER */
+.ticker-wrap {
+  width: 100%;
+  padding-left: 100%; /* Push contents to right side of screen */
+  background-color: #eee;
+}
+
+/* INNER CONTAINER */
+@keyframes ticker {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-100%, 0, 0); }
+}
+.ticker-move {
+  /* Basically move items from right side of screen to left in infinite loop */
+  display: inline-block;
+  white-space: nowrap;
+  padding-right: 100%;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: ticker;
+  animation-duration: 20s;
+}
+.ticker-move:hover{
+  animation-play-state: paused; /* Pause scroll on mouse hover */
+}
+
+/* ITEMS */
+.ticker-item{
+  display: inline-block; /* Lay items in a horizontal line */
+  padding: 0 2rem;
+}
