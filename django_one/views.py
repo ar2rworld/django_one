@@ -62,6 +62,9 @@ def homeView(request):
 
   return HttpResponse(html)
 
+def time(request):
+  html=get_template('current_datetime.html').render({})
+  return HttpResponse(html)
   '''didnt used here:
   locals()
   {% include %}

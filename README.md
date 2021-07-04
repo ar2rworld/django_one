@@ -1,5 +1,5 @@
 # Django_one
-## Fullstack attempt to create django website
+## Fullstack attempt to create a django website
 ### by following next book
 ## The Definitive Guide to Django:
 #### Web Development Done Right
