@@ -5,7 +5,7 @@ import requests as req
 import datetime
 from django_one.static.css.style import style
 from django.template.loader import get_template
-
+from books.models import Publisher
 
 coinsTemplate=Template(
   """
@@ -28,44 +28,21 @@ def getTrendingTemplate():
 
 
 
-def homeView(request):
-  #kostil
-  styleFile = open('django_one/static/css/style.css')
-  style = styleFile.read()
-  styleFile.close()
-  
+def homeView(request):  
   template = get_template('body.html').render({'numberOfComrades': '1'})
-
   trending='<i>here should be made an API call and data displayed asynchronally</i>'#getTrendingTemplate()
-  
-  homeHeader=Template('''
-  <link rel="stylesheet"  href="django_one/static/css/style.css">
-  <title>Django_one</title>
-  <style>''' +style+'''</style>''')
-
-  footer = get_template('footer.html').render({'data':'This is a bottom part',
-    'phone': 7777777777,
-    'email': 'ar2r.world@gmail.com',
-    'website': 'http://ec2-3-141-45-250.us-east-2.compute.amazonaws.com'})
-  html = homeHeader.render(Context({}))+\
-  """
-  <html><body class='greenBackColor'>
-    <div class='awesome whiteBackColor'>
-      <h2>Django_one</h2>
-      <div class='miniMenu'>
-        <button>Login</button><br>
-        <button>Register</button><br>
-      </div>
-    </div>
-    """+ trending + template + footer +"""
-  </body></html>"""
-
-  return HttpResponse(html)
+  return HttpResponse(template)
 
 def time(request):
   html=get_template('current_datetime.html').render({})
   return HttpResponse(html)
-  '''didnt used here:
-  locals()
-  {% include %}
-  '''
+
+def publishersView(request):
+  t=get_template('publishers.html')
+  html=t.render({'publishers':Publisher.objects.all()})
+  return HttpResponse(html)
+
+'''didnt used here:
+locals()
+{% include %}
+'''

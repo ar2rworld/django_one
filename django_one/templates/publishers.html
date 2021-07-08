@@ -1,0 +1,11 @@
+{% extends 'main_base.html' %}
+{% block title %}Publishers list{% endblock %}
+
+{% block content %}
+<table class='publishersTable whiteBackColor'>
+<caption>Publishers:</caption>
+{%for i in publishers%}
+<tr><th>{{i.name}}</th><td>{{i.address}}</td><td>{{i.city}}</td><td>{{i.state_province}}</td><td>{{i.country}}</td><td>{{i.website}}</td></tr>
+{% endfor %}
+</table>
+{% endblock %}

@@ -27,6 +27,13 @@ body{
   margin: auto;
   text-align: center;
 }
+.threeColumnGrid{
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.mainTitle{
+  appearance: none;
+}
 /*
 .coin{
   border: 1px white solid;
@@ -78,7 +85,9 @@ p{
   padding: 0 1%;
 }
 
-/* OUTER CONTAINER */
+/* OUTER CONTAINER
+https://code-boxx.com/html-css-news-ticker-horizontal-vertical/#sec-horizontal
+*/
 .tcontainer {
   width: 100%;
   overflow: hidden; /* Hide scroll bar */
@@ -114,4 +123,33 @@ p{
 .ticker-item{
   display: inline-block; /* Lay items in a horizontal line */
   padding: 0 2rem;
+}
+.publishersTable{
+  margin:auto;
+  border: 2px red solid;
+  padding: 1%;
+}
+td{
+  border: 1px red solid;
+}
+
+/*footer part*/
+.grid0{
+  display: grid;
+  grid-template-columns: auto auto;
+}
+li.helpLi{
+  list-style: none;
+}
+li.contactLi{
+  list-style: none;
+}
+.footer{
+  border: 3px red solid;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-bottom: 0;
+}
+.footer:hover{
+  background-color: rgb(194, 213, 199);
 }

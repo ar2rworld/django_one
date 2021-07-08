@@ -16,9 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django_one import views
+from books import views as book_views
 from django.conf import settings
 from django.conf.urls.static import static
-
 #import django_one.settings
 #from django_one.views import trendingView
 
@@ -26,5 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.homeView ),
     #path('trending/', trendingView ),
-    path('time/', views.time)
+    path('time/', views.time),
+    path('publishers/', views.publishersView),
+    path(r'^search/$', book_views.search),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

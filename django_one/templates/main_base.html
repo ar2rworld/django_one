@@ -1,0 +1,51 @@
+{% load static %}
+<html>
+  <head>
+    <!--<link rel="stylesheet"  href="/django_one/static/css/style.css">-->
+    <link rel="stylesheet"  href="{%  static  'css/style.css'  %}">
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body class='greenBackColor'>
+    <div class='threeColumnGrid awesome whiteBackColor'>
+      <div>
+        <h5>Books store:</h5>
+        <!--#kost-->
+        <a href='/publishers/'>Publishers</a>
+      </div>
+      <div>
+        <a class='mainTitle' href='/'><h2>Django_one</h2></a>
+      </div>
+      <div>
+        <div class='miniMenu'>
+          <button>Login</button><br>
+          <button>Register</button><br>
+        </div>
+      </div>
+    </div>
+    {% block content %}{% endblock %}
+  </body>
+  <footer>
+    <div class="footer whiteBackColor">
+      {{data}}
+      <div class="grid0">
+        <div class="grid0Col">
+          <h4>Contact</h4>
+          <ul>
+            <li class="contactLi">Email: ar2r.world@gmail.com</li>
+            <li class="contactLi">Phone: 7777777777</li>
+            <li class="contactLi">Website: <a target="_blank" href="http://ec2-3-141-45-250.us-east-2.compute.amazonaws.com">Link</a></li>
+          </ul>
+        </div>
+        <div class="grid0Col">
+          <h4>Help</h4>
+          <ul>
+            <li class="helpLi">911</li>
+            <li class="helpLi">Breaf</li>
+            <li class="helpLi">Ask yourself: Is this gonna be important in 5 years?</li>
+            <li class="helpLi">Chill</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</html>

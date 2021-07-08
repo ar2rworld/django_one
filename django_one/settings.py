@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'books',
+    'django_one',
 ]
 
 MIDDLEWARE = [
@@ -135,9 +136,9 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#css path	
+#static path	
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,  '/static/')
 STATIFILES_DIRS=[
-    BASE_DIR / "/static",
+    BASE_DIR / "static/",
 ]
