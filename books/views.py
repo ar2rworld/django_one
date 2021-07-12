@@ -11,7 +11,7 @@ def search(request):
     results = Book.objects.filter(qset).distinct()
   else:
     results = []
-  return render("books/search.html", {
+  return render(request, "books/search.html", {
     "results": results,
     "query": query
   })

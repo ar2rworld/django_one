@@ -76,7 +76,8 @@ body{
   background-color: rgba(214, 213, 219, 203);
   border-top-right-radius: 20px;
   border: 3px red solid;
-  margin: 1%;  
+  margin: 1%;
+  padding: 0% 1%;
 }
 *{
   font-family: sans-serif;
@@ -136,7 +137,7 @@ td{
 /*footer part*/
 .grid0{
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto auto auto;
 }
 li.helpLi{
   list-style: none;

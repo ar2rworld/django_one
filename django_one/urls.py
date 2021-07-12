@@ -28,5 +28,6 @@ urlpatterns = [
     #path('trending/', trendingView ),
     path('time/', views.time),
     path('publishers/', views.publishersView),
-    path(r'^search/$', book_views.search),
+    path('search/', book_views.search),
+    path('stats/', views.stats),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

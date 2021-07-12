@@ -8,9 +8,10 @@
   <body class='greenBackColor'>
     <div class='threeColumnGrid awesome whiteBackColor'>
       <div>
-        <h5>Books store:</h5>
         <!--#kost-->
-        <a href='/publishers/'>Publishers</a>
+        <a href='/publishers/'><button>Book store</button></a>
+        <a href='/search/'><button>Search</button></a>
+        
       </div>
       <div>
         <a class='mainTitle' href='/'><h2>Django_one</h2></a>
@@ -22,7 +23,9 @@
         </div>
       </div>
     </div>
-    {% block content %}{% endblock %}
+    <div class='body'>
+      {% block content %}{% endblock %}
+    </div>
   </body>
   <footer>
     <div class="footer whiteBackColor">
@@ -43,6 +46,12 @@
             <li class="helpLi">Breaf</li>
             <li class="helpLi">Ask yourself: Is this gonna be important in 5 years?</li>
             <li class="helpLi">Chill</li>
+          </ul>
+        </div>
+        <div class="grid0Col">
+          <h4>Statistics:</h4>
+          <ul>
+            <li class="helpLi">views: -1</li>
           </ul>
         </div>
       </div>

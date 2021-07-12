@@ -36,4 +36,8 @@ class Book(models.Model):
   publication_date = models.DateField()
   def __str__(self):
     return self.title
+class Statistics(models.Model):
+  views = models.BigIntegerField()
+  def __str__(self):
+    return str(self.views)
   
