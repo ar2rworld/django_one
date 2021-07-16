@@ -137,7 +137,7 @@ td{
 /*footer part*/
 .grid0{
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto;
 }
 li.helpLi{
   list-style: none;
@@ -153,4 +153,17 @@ li.contactLi{
 }
 .footer:hover{
   background-color: rgb(194, 213, 199);
+}
+/*forms*/
+ul.errorlist {        
+  margin: 0;
+  padding: 0;
+}
+.errorlist li {
+  background-color: red;
+  color: white;
+  display: block;
+  font-size: 10px;
+  margin: 0 0 3px;
+  padding: 4px 5px;
 }

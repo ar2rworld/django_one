@@ -7,4 +7,4 @@
 python manage.py migrate
 
 python manage.py migrate --run-syncdb</code>
-### 95
+### 104

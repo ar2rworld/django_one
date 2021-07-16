@@ -7,6 +7,7 @@ import datetime
 from django_one.static.css.style import style
 from django.template.loader import get_template
 from books.models import Publisher, Statistics
+from django.contrib.auth.models import User
 
 coinsTemplate=Template(
   """
@@ -37,7 +38,8 @@ def update_views_counter():
 
 def homeView(request):
   update_views_counter()
-  template = get_template('body.html').render({'numberOfComrades': '1'})
+  template = get_template('body.html').render({'numberOfComrades': User.objects.count,
+  'views': Statistics.objects.all().get(id=0)})
   trending='<i>here should be made an API call and data displayed asynchronally</i>'#getTrendingTemplate()
 
   return HttpResponse(template)
@@ -64,9 +66,8 @@ def footerTemplate():
   #but i don't wanna copy the same text of request to /stats/
   #in every view, so i want to make a function which will be executed every
   #time component main_base.html is rendered to get data of views
-  # to render it in footer part 
+  #to render it in footer part 
   pass
-
 '''didnt used here:
 locals()
 {% include %}

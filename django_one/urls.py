@@ -30,4 +30,8 @@ urlpatterns = [
     path('publishers/', views.publishersView),
     path('search/', book_views.search),
     path('stats/', views.stats),
+    path('contact/', book_views.contact),
+    path('contact/thanks/', book_views.thanks),
+    path('add_publisher/thanks/', book_views.thanks),
+    path('add_publisher/', book_views.add_publisher),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

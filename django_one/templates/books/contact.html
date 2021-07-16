@@ -1,0 +1,31 @@
+{% extends 'main_base.html' %}
+{% block title %} Contact us{% endblock %}
+{% block content %}
+  <h1>Contact us</h1>
+  <form action="." method="POST">
+    {% csrf_token %}
+    <div class="fieldWrapper">
+      {{ form.topic.errors }}
+      <label for="id_topic">Kind of feedback:</label>
+      {{ form.topic }}
+    </div>
+    <div class="fieldWrapper">
+      <label for="id_message">Your message:</label>
+      {{ form.message }}
+    </div>
+    <div class="fieldWrapper">
+      {{ form.sender.errors }}
+      <label for="id_sender">Your email (optional):</label>
+      {{ form.sender }}
+    </div>
+    <div class="fieldWrapper{% if form.message.errors %} errors{% endif %}">
+      {% if form.message.errors %}
+      <ol>{% for error in form.message.errors %}
+        <li><strong>{{ error|escape }}</strong></li>
+        {% endfor %}
+      </ol>
+      {% endif %}
+    </div>
+    <p><input type="submit" value="Submit"></p>
+  </form>
+{% endblock %}
