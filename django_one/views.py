@@ -6,7 +6,7 @@ import requests as req
 import datetime
 from django_one.static.css.style import style
 from django.template.loader import get_template
-from books.models import Publisher, Statistics
+from books.models import Publisher, Book, Author, Statistics
 from django.contrib.auth.models import User
 
 coinsTemplate=Template(
@@ -48,9 +48,11 @@ def time(request):
   html=get_template('current_datetime.html').render({})
   return HttpResponse(html)
 
-def publishersView(request):
-  t=get_template('publishers.html')
-  html=t.render({'publishers':Publisher.objects.all()})
+def book_store(request):
+  t=get_template('book_store.html')
+  html=t.render({'publishers':Publisher.objects.all(),
+    'books':Book.objects.all(),
+    'authors':Author.objects.all()})
   return HttpResponse(html)
 
 def stats(request):

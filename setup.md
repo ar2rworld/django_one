@@ -6,5 +6,7 @@
 
 python manage.py migrate
 
-python manage.py migrate --run-syncdb</code>
+python manage.py migrate --run-syncdb
+
+python manage.py runserver 0.0.0.0:3000</code>
 ### 104

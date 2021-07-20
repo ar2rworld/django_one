@@ -1,10 +1,14 @@
 {% extends "main_base.html" %}
 {% block title %}Thank you!{% endblock %}
 {% block content %}
+{% if topic %}
 <h1>Thanks for your response!</h1>
 <ul>
   <li>{{ topic }}</li>
   <li>{{ message }}</li>
   <li>{{ sender }}</li>
 </ul>
+{% elif model %}
+  <h1>Thanks for your action: "{{action}}" of {{model}}, {{first_name}}!</h1>
+{% endif %}
 {% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'main_base.html' %}
+{% block title %} Books{% endblock %}
+{% block content %}
+  <h3>Books {{year}}</h3>
+  <table>
+    {% if books %}
+    {% for book in books %}
+      <tr><th>{{book.title}}</th><td>{{book.authors}}</td><td>{{book.publisher}}</td><td>{{book.publication_date}}</td></tr>
+    {% endfor %}
+    {% else %}
+      <p>No books for this year</p>
+    {% endif %}
+</table>
+{% endblock %}

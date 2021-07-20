@@ -1,0 +1,26 @@
+{% extends 'main_base.html' %}
+{% block title %}Publishers list{% endblock %}
+
+{% block content %}
+<a href='/add_publisher/'><button>Add publisher</button></a>
+<a href='/books/'><button>Books</button></a>
+<table class='publishersTable whiteBackColor'>
+<caption>Publishers:</caption>
+{%for i in publishers%}
+<tr><th>{{i.name}}</th><td>{{i.address}}</td><td>{{i.city}}</td><td>{{i.state_province}}</td><td>{{i.country}}</td><td>{{i.website}}</td></tr>
+{% endfor %}
+</table>
+<table class='publishersTable whiteBackColor'>
+  <caption>Books:</caption>
+  {%for i in books%}
+  <tr><th>{{i.title}}</th><td>{{i.authors}}</td><td>{{i.publisher}}</td><td>{{i.publication_date}}</td></tr>
+  {% endfor %}
+</table>
+</table>
+<table class='publishersTable whiteBackColor'>
+  <caption>Authors:</caption>
+  {%for i in authors%}
+  <tr><th>{{i.salutation}}</th><td>{{i.first_name}}</td><td>{{i.last_name}}</td><td>{{i.email}}</td><td><img src={{i.headshot}}></img></td></tr>
+  {% endfor %}
+</table>
+{% endblock %}

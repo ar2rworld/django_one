@@ -1,3 +1,4 @@
+from books.models import Author, Publisher
 from django.shortcuts import render
 from django.db.models import Q
 from books.models import Book
@@ -52,3 +53,18 @@ def add_publisher(request):
     else:
       form = PublisherForm()
   return render(request, 'books/add_publisher.html', {'form': form})
+
+def books(request):
+  books=Book.objects.all()
+  return render(request, 'books/books_archive.html',{'books':books})
+
+def year_archive(request, year):
+  books=Book.objects.filter(publication_date__range=[year+'-01-01', year+'-12-31'])
+  return render(request, 'books/books_archive.html',{'year':year, 'books':books})
+
+def add_model(request, model, action, salutation, first_name, last_name, email, headshot):
+  if model.lower() == 'author':
+    if action == 'add':
+      a=Author(salutation=salutation, first_name=first_name, last_name=last_name, email=email, headshot=headshot)
+      a.save()
+  return render(request, 'books/thanks.html', {'model': model, 'action': action, 'first_name':first_name})
