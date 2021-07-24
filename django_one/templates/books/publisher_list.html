@@ -1,0 +1,9 @@
+<h1>Publishers</h1>
+<h2>Extra: {{ extra }}</h2>
+<ul>
+{% for publisher in object_list %}
+    <li>{{ publisher.name | upper }} - {{ publisher.address }}</li>
+{% empty %}
+    <li>No articles yet.</li>
+{% endfor %}
+</ul>

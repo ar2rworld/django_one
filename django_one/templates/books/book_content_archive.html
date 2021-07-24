@@ -1,0 +1,10 @@
+{% extends 'main_base.html' %}
+{% block title %}Book content archive{% endblock %}
+{% block content %}
+  <h2>Book content archive</h2>
+  {% if img %}
+    <img src='{{img}}' alt='i did not find the way to load static' />
+  {% else %}
+    <h1>Hm</h1>
+  {% endif %}
+{% endblock %}

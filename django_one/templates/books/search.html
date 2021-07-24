@@ -2,7 +2,7 @@
 {% block title %}Search{% if query %} Results{% endif %}{% endblock %}
 {% block content %}
   <form action="." method="GET">    
-    <label for="q">Search: </label>    
+    <label for="q">Book search: </label>    
     <input type="text" name="q" value="{{ query|escape }}">    
     <input type="submit" value="Search">  </form>  {% if query %}    
     <h3>Results for "{{ query|escape }}":</h3>

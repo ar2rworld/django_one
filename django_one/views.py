@@ -32,7 +32,7 @@ def update_views_counter():
   stats_table=Statistics.objects.all()
   if len(stats_table)>0:
     views=stats_table.get(id=0)
-    print('views:', views.views+1)
+    #print('views:', views.views+1)
     views.views+=1
     views.save()
 

@@ -9,4 +9,10 @@ python manage.py migrate
 python manage.py migrate --run-syncdb
 
 python manage.py runserver 0.0.0.0:3000</code>
+### Unused things
+<ul>
+  <li>context processors</li>
+  <li>feed, rss, atom</li>
+  <li>sitemaps</li>
+</ul>
 ### 104

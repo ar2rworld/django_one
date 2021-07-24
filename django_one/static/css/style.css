@@ -135,7 +135,7 @@ td{
 }
 
 /*footer part*/
-.grid0{
+.grid2{
   display: grid;
   grid-template-columns: auto auto;
 }

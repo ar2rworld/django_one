@@ -20,7 +20,7 @@
 <table class='publishersTable whiteBackColor'>
   <caption>Authors:</caption>
   {%for i in authors%}
-  <tr><th>{{i.salutation}}</th><td>{{i.first_name}}</td><td>{{i.last_name}}</td><td>{{i.email}}</td><td><img src={{i.headshot}}></img></td></tr>
+  <tr><th>{{i.salutation}}</th><td>{{i.first_name}}</td><td>{{i.last_name}}</td><td>{{i.email}}</td><td><img src={{i.headshot }}></img></td></tr>
   {% endfor %}
 </table>
 {% endblock %}

@@ -19,17 +19,19 @@ from django_one import views
 from books import views as book_views
 from django.conf import settings
 from django.conf.urls.static import static
-from django.views.generic.list import ListView
 from books.models import Publisher
 #import django_one.settings
 #from django_one.views import trendingView
 
 publisher_info = {
     "queryset" : Publisher.objects.all(),
+    'model': Publisher,
 }
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    re_path(r'^login/$', book_views.login),
+    re_path(r'^register/$', book_views.login),
     path('', views.homeView ),
     #path('trending/', trendingView ),
     path('time/', views.time),
@@ -42,6 +44,7 @@ urlpatterns = [
     path('add_publisher/', book_views.add_publisher),
     re_path(r'^books/(?P<year>\d{4})/$', book_views.year_archive),
     re_path(r'^([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/$', book_views.add_model),
-    re_path(r'^publisher/$', ListView, publisher_info),
+    re_path(r'^publisher/$', book_views.publisher_list_view.as_view(),{'extra_context':{'extra':'hello!'}}, name='publisher_list'),
     re_path(r'^books/', book_views.books),
+    re_path(r'^book_content_archive/$', book_views.book_content_archive),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

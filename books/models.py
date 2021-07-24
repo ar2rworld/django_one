@@ -40,4 +40,11 @@ class Statistics(models.Model):
   views = models.BigIntegerField()
   def __str__(self):
     return str(self.views)
+class User(models.Model):
+  username = models.CharField(max_length=100)
+  password = models.CharField(max_length=100)
+  account_created_date = models.DateField()
+  last_loged_date = models.DateTimeField()
+  def __str__(self):
+    return self.username
   
