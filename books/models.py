@@ -43,8 +43,8 @@ class Statistics(models.Model):
 class User(models.Model):
   username = models.CharField(max_length=100)
   password = models.CharField(max_length=100)
-  account_created_date = models.DateField()
-  last_loged_date = models.DateTimeField()
+  account_created_date = models.DateTimeField(blank=True, null=True)
+  last_login_date = models.DateTimeField(blank=True, null=True)
   def __str__(self):
     return self.username
   

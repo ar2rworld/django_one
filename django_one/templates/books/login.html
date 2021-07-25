@@ -15,10 +15,10 @@
       <h3>{{ status }}</h3>
       <form action="/register/" method="POST">
         {% csrf_token %}
-        <div class='grid2Col'><h2>Or join {{ n_users }} other users:</h2>
+        <div class='grid2Col'><h2>Or register and join {{ n_users }} other users:</h2>
           <input type='hidden' name='type' value='registration' />
           <input name='username' maxlength="100" placeholder="username" required />
-          <input name='password' type='password' maxlength="100" placeholder="password" required />
+          <input name='password' type='password' minlength="8" maxlength="100" placeholder="password" required />
         </div>
         <input type="submit" value="Submit">
       </form>

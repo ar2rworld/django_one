@@ -19,7 +19,12 @@
       </div>
       <div>
         <div class='miniMenu'>
-          <a href='/login/'><button>Login</button></a><br>
+          {% if not username %}
+            <a href='/login/'><button>Login</button></a><br>
+          {% else %}
+            <h3>Hello, {{ username }}!</h3>
+            <a href='/logout/'><button>Log out</button></a>
+          {% endif %}
         </div>
       </div>
     </div>

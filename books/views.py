@@ -1,16 +1,17 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, response
+from django.http import HttpResponseRedirect
+from django.shortcuts import redirect, render
 import csv
 from django.db.models import Expression
 
-from books.models import Author, Publisher, User
-from django.shortcuts import redirect, render
 from django.db.models import Q
 from books.models import Book
 from books.forms import ContactForm
 from django.core.mail import send_mail
 from django.utils import timezone
-from django.http import HttpResponseRedirect
+
 from books.forms import PublisherForm
+from books.models import Author, Publisher, User
 
 from django.views.generic.list import ListView
 
@@ -30,20 +31,38 @@ def search(request):
 
 def login(request):
   try:
-    username = request.POST['username']
-    password = request.POST['password']
-    type = request.POST['type']
+    username = request.POST.get('username', None)
+    password = request.POST.get('password', None)
+    type = request.POST.get('type', None)
     status = ''
-    if type == 'registration':
+    if type == 'registration' and username and password:
       if not User.objects.filter(username=username):
-        User.objects.create(username=username, password=password, )
+        u = User.objects.create(username=username, password=password,  account_created_date=timezone.now())
+        status = 'Successfully created!'
       else:
-        status = 'yes'
+        status = 'we already have this username'
+    elif type == 'login' and username and password:
+      u = User.objects.filter(username=username, password=password)
+      n = u.count()
+      if n == 1:
+        status = 'Successfully logged in!'
+        response = HttpResponseRedirect('/')
+        response.set_cookie('username', username, 5)
+        return response
+      else:
+        status = 'Invalid username/password'
     n_users = User.objects.count()
-    return render(request, 'books/login.html', {'n_users' : n_users, 'status' : status})
+    return render(request, 'books/login.html', {'n_users' : n_users, 'error': '0', 'status' : status})
   except Exception as e:
     print(e)
-    return render(request, 'books/login.html', {'status': e})
+    return render(request, 'books/login.html', {'error': '1', 'status': e})
+
+def logout(request):
+  #add sad picture somethere
+  #del request.COOKIES['username']
+  response = HttpResponseRedirect('/')
+  response.set_cookie('username', '', -1)
+  return response
 
 def contact(request):
   if request.method == 'POST':

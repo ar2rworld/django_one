@@ -31,6 +31,7 @@ publisher_info = {
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^login/$', book_views.login),
+    re_path(r'^logout/$', book_views.logout),
     re_path(r'^register/$', book_views.login),
     path('', views.homeView ),
     #path('trending/', trendingView ),

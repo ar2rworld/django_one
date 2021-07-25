@@ -6,8 +6,8 @@ import requests as req
 import datetime
 from django_one.static.css.style import style
 from django.template.loader import get_template
-from books.models import Publisher, Book, Author, Statistics
-from django.contrib.auth.models import User
+from books.models import Publisher, Book, Author, Statistics, User
+#from django.contrib.auth.models import User
 
 coinsTemplate=Template(
   """
@@ -31,15 +31,16 @@ def getTrendingTemplate():
 def update_views_counter():
   stats_table=Statistics.objects.all()
   if len(stats_table)>0:
-    views=stats_table.get(id=0)
+    views=stats_table[0]#.get(id=0)
     #print('views:', views.views+1)
     views.views+=1
     views.save()
 
 def homeView(request):
   update_views_counter()
-  template = get_template('body.html').render({'numberOfComrades': User.objects.count,
-  'views': Statistics.objects.all().get(id=0)})
+  template = get_template('body.html').render({'numberOfComrades': User.objects.count(),
+  'views': Statistics.objects.all()[0],
+  'username' : request.COOKIES.get('username')})
   trending='<i>here should be made an API call and data displayed asynchronally</i>'#getTrendingTemplate()
 
   return HttpResponse(template)
